@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Hof Rahmann",
+    "long": 51.931760,
+    "lat": 7.194530,
+    "adress": "Harle 30, 48653 Coesfeld"
+  },
+  {
+    "name": "Uwe & Heidrun Heinz",
+    "long": 50.658420,
+    "lat": 12.467970,
+    "adress": "Voigtsgrüner Str. 2, 08064 Zwickau"
+  },
+  {
+    "name": "Franz Josef Richling und Stephanie Meißner",
+    "long": 48.674290,
+    "lat": 12.320030,
+    "adress": "Schloßstr. 7, 84103 Postau"
+  },
+  {
+    "name": "Schutzhaus & Kängurufarm Harzberg",
+    "long": 47.973460,
+    "lat": 16.197010,
+    "adress": "Harzberg 1, 2540 Bad Vöslau"
+  }
+]

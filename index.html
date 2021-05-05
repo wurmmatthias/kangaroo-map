@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+    <style>
+      html, body {height: 100%; padding: 0; margin: 0; } #mapid { height: 100%; width: 100vw;}
+    </style>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+    <title>Kangaroo Map - Wallaby Locations</title>
+  </head>
+  <body>
+     <div id="mapid"></div>
+    <script type="text/javascript">
+      var mymap = L.map('mapid').setView([50.87, 8.02], 10);
+
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v10',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibWF0dGhlczM4MDAiLCJhIjoiY2tvYmJrOWM2MGZheTJ2cGd2Y3RudWczOSJ9.AAP-yB6GMMavV9Y_8qGQVQ'
+}).addTo(mymap);
+
+    var rooIcon = L.icon({
+        iconUrl: './assets/img/kangaroo.png',
+
+        iconSize:     [48, 48], // size of the icon
+        iconAnchor:   [25, 47], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -47] // point from which the popup should open relative to the iconAnchor
+    });
+
+    fetch('./locations.json')
+      .then(response => response.json())
+      .then(data => {
+        for (x in data) {
+          var marker = L.marker([data[x].long, data[x].lat], { icon: rooIcon } ).addTo(mymap);
+          marker.bindPopup("<b>" + data[x].name + "</b><br>" + data[x].adress);
+        }
+      });
+
+
+    //var marker1 = L.marker([51.931760, 7.194530], { icon: rooIcon } ).addTo(mymap);
+    //var marker2 = L.marker([50.658420, 12.467970], { icon: rooIcon } ).addTo(mymap);
+    </script>
+  </body>
+</html>
