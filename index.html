@@ -35,6 +35,17 @@
         popupAnchor:  [-3, -47] // point from which the popup should open relative to the iconAnchor
     });
 
+    var markerIcon = L.icon({
+        iconUrl: './assets/img/marker.png',
+
+        iconSize:     [32, 32], // size of the icon
+        iconAnchor:   [15, 31], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -31]
+    });
+
+    var home_marker = L.marker([50.87, 8.02], { icon: markerIcon } ).addTo(mymap);
+    home_marker.bindPopup("<b>Siegen, NRW</b>").openPopup();
+
     fetch('./locations.json')
       .then(response => response.json())
       .then(data => {
