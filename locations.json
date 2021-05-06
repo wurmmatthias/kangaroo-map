@@ -28,5 +28,17 @@
     "long": 47.46979,
     "lat": 9.343594,
     "adress": "Engi 931, 9304 Bernhardzell"
+  },
+  {
+    "name": "Moon Ridge Farm",
+    "long": 50.770930,
+    "lat": -3.590110,
+    "adress": "Newton St Cyres, Exeter EX5 5AA"
+  },
+  {
+    "name": "Cassiobury Farm",
+    "long": 51.657410,
+    "lat": -0.432660,
+    "adress": "Rousebarn Ln, Croxley Green, Watford, Rickmansworth WD3 3GG"
   }
 ]
